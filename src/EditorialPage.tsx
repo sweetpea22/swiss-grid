@@ -51,6 +51,18 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       lineHeight: "32px",
       color: palette.additional["gray"][8],
     },
+    verticalLine: {
+      backgroundColor: "#b5b5b5", height: "100px", width: "1px", marginTop: "24px"
+    },
+    hr: {
+      height: "1px", width: "100%", background: "lightgray"
+    },
+    profileImg: {
+      backgroundColor: "#B5b5b5", width: "300px", height: "300px", marginTop: "40px"
+    },
+    wideImg: {
+
+    }
   })
 })
 
@@ -60,9 +72,9 @@ const EditorialPage: React.FC = () => {
     <div className={classes.pageContainer}>
       <section className={classes.contentContainer}>
         <header className={classes.headerContainer}>
-          <h1>Employee Spotlight</h1>
+          <h1>Employee Spotlight Series I</h1>
           <div style={{ backgroundColor: "#B5b5b5", width: "300px", height: "300px", marginTop: "40px" }}></div>
-          <div style={{ backgroundColor: "#b5b5b5", height: "100px", width: "1px", marginTop: "24px" }}></div>
+          <div className={classes.verticalLine}></div>
           <h1>Dustin Brickwood,<span style={{fontStyle: "italic"}}> Developer</span></h1>
         </header>
         <main className={classes.bodyContainer}>
@@ -82,15 +94,14 @@ const EditorialPage: React.FC = () => {
             The way we build software, the work we do on networks (e.g., Ethereum, Polkadot) to further the end goal of decentralization, is challenging and rewarding for any Developer.
           </p>
           <br></br>
-          <div style={{ height: "1px", width: "100%", background: "lightgray" }}></div>
+          <div className={classes.hr}></div>
           <br></br>
           <p className={classes.calloutText}>
             “Building out a decentralized web is bigger than us or any other single organization.”
           </p>
           <br></br>
-          <div style={{ height: "1px", width: "100%", background: "lightgray" }}></div>
+          <div className={classes.hr}></div>
           <br></br>
-          
           <p className={classes.emphasizedText}>
             What was your initial role here and how has that evolved? 
           </p>
@@ -163,7 +174,7 @@ const EditorialPage: React.FC = () => {
           </p>
           <br></br>
           <br></br>
-          <div style={{ height: "1px", width: "100%", background: "lightgray" }}></div>
+          <div className={classes.hr}></div>
           <br></br>
           <p className={classes.italicText}>
             The work we do at ChainSafe will offer you the most significant technical challenges you can imagine - and some that you can't. 
