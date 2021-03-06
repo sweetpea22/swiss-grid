@@ -1,6 +1,6 @@
 import React from 'react'
-import { createStyles, ITheme, makeStyles } from "@chainsafe/common-theme";
-import { Grid } from "@chainsafe/common-components";
+// import { createStyles, ITheme, makeStyles } from "@chainsafe/common-theme";
+// import { Grid } from "@chainsafe/common-components";
 
 const ListingPage: React.FC = () => {
   // const classes = useStyles();
