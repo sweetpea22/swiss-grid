@@ -26,6 +26,13 @@ const theme = createTheme({
       backgroundColor: "#f5f5f5",
     },
   },
+  themeConfig: {
+    typography: {
+      h1: {
+        lineHeight: "1.2em",
+      }
+    }
+  },
 })
 
 const App: React.FC<{}> = () => {
