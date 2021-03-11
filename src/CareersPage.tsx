@@ -87,8 +87,16 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       },
       [breakpoints.up('lg')]: {
         gridTemplateColumns: "minmax(0,5fr) minmax(0,.5fr) minmax(0, 5fr)",
-        marginTop: "5%",
+        marginTop: "8%",
       }
+    },
+    singleColContainer: {
+      display: "grid",
+      gridGap: "24px",
+      [breakpoints.up('md')]: {
+        gridTemplateColumns: "minmax(0, 1fr)",
+        marginTop: "8%",
+      },
     },
     bodyTextContainer: {
       background: palette.additional["gray"][3],
@@ -139,6 +147,12 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       [breakpoints.down('md')]: {
         gridRow: 1,
       },
+      "& > p": {
+        color: palette.additional["gray"][9],
+        fontSize: "16px",
+        lineHeight: "24px",
+        maxWidth: "60%",
+      },
       "& > h1": {
           color: palette.additional["gray"][9],
           fontSize: "20px",
@@ -164,10 +178,12 @@ const CareersPage: React.FC = () => {
     <section className={classes.contentContainer}>
         <header className={classes.headerContainer}>
         <div className={classes.headerContentContainer}>
-          <div style={{width: "350px", height: "520px", background: "#b5b5b5"}}></div>
+          <img src="/gradient.png" alt="" style={{width: "350px", height: "520px", background: "#b5b5b5"}}/>
           <div className={classes.headerTextContainer}>
             <h1 className={classes.headerTitle}>What does the future look like?</h1>
             <p>Nobody knows, but it starts with infrastructure.</p>
+            <br></br>
+            <p style={{color: "white"}}><u>View open positions</u></p>
             </div>
         </div>
       </header>
@@ -176,7 +192,9 @@ const CareersPage: React.FC = () => {
         <section className={classes.bodyContentContainer}>
           <div className={classes.bodyTextContainer}>
             <div className={classes.imgWrapper}>
-            <img src="/plant.png" style={{ height: "100%"}} alt=""/>
+            <img 
+            src="/office1.png"
+            alt=""/>
             </div>
           </div>
           <div></div>
@@ -189,7 +207,7 @@ const CareersPage: React.FC = () => {
               <br></br>
               <p>We do this by delivering high-quality code efficiently, and doing that in a people-first manner.</p>
               <br></br>
-              <a href="/openpositions"><h3>View open positions</h3></a>
+              {/* <a href="/openpositions"><h3>View open positions</h3></a> */}
             </div>
           </div>
           </section>
@@ -199,7 +217,7 @@ const CareersPage: React.FC = () => {
             <div className={classes.topAlignedList}>
               <p>Get to know us </p>
               <hr className={classes.hr}></hr>
-              <h1><a href="/openpositions">ChainSafers, interviewed: Dustin Brickwood</a></h1>
+              <h1><a href="/editorial">ChainSafers, interviewed: Dustin Brickwood</a></h1>
               <hr className={classes.hr}></hr>
               <h1><a href="/openpositions">ChainSafers, interviewed: Ed Mack</a></h1>
               <hr className={classes.hr}></hr>
@@ -239,7 +257,7 @@ const CareersPage: React.FC = () => {
           </div>
           </section>
           {/* Current Openings */}
-          <section className={classes.bodyContentContainer}>
+          <section className={classes.singleColContainer}>
           <div className={classes.bodyTextContainer}>
             <div className={classes.topAlignedList}>
               <p>Current Openings Worldwide </p>
@@ -256,12 +274,6 @@ const CareersPage: React.FC = () => {
               <hr className={classes.hr}></hr>
             </div>
           </div>
-          <div></div>
-          <div className={classes.bodyTextContainer}>
-              <div className={classes.imgWrapper}>
-              <img src="/plant.png" style={{ height: "100%"}} alt=""/>
-              </div>
-          </div>
         </section>
       </main>
     </section>
@@ -270,3 +282,5 @@ const CareersPage: React.FC = () => {
 }
 
 export default CareersPage;
+
+//  https://res.cloudinary.com/ddxhvanz2/image/upload/v1615486323/chainsafe%20careers%20page/office1_uftrt6.png 2x

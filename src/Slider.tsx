@@ -52,9 +52,11 @@ const useStyles = makeStyles(({ breakpoints, palette, zIndex, constants }: IThem
       fontSize: "16px",
       lineHeight: "24px",
       fontWeight: "normal",
-      maxWidth: 600,
-      [breakpoints.down('md')]: {
-        maxWidth: "80%",
+      [breakpoints.up('lg')]: {
+        maxWidth: 600
+      },
+      [breakpoints.down('lg')]: {
+        maxWidth: "75%",
       }
     },
     icon: {
