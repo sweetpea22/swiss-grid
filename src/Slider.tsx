@@ -12,11 +12,9 @@ const useStyles = makeStyles(({ breakpoints, palette, zIndex, constants }: IThem
       borderRadius: constants.generalUnit,
       position: "relative",
       minHeight: "50vh",
+      maxHeight: "100%",
       display: "flex",
       justifyContent: "flex-start",
-      [breakpoints.down('sm')]: {
-        minHeight: "60vh",
-      },
     },
     slideWrapper: {
       display: "flex",

@@ -80,19 +80,19 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
     },
     bodyContentContainer: {
       display: "grid",
-      gridGap: "24px",
       [breakpoints.up('md')]: {
         gridTemplateColumns: "minmax(0, 1fr)",
         marginTop: "24px",
+        rowGap: constants.generalUnit * 4,
       },
       [breakpoints.up('lg')]: {
         gridTemplateColumns: "minmax(0,5fr) minmax(0,.5fr) minmax(0, 5fr)",
-        marginTop: "8%",
+        marginTop: "6%",
+        rowGap: 0,
       }
     },
     singleColContainer: {
       display: "grid",
-      gridGap: "24px",
       [breakpoints.up('md')]: {
         gridTemplateColumns: "minmax(0, 1fr)",
         marginTop: "8%",
@@ -102,31 +102,36 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       background: palette.additional["gray"][3],
       position: "relative",
       width: "100%",
+      height: "50vh",
       [breakpoints.down('md')]: {
         minHeight: "50vh",
-        padding: "48px 8px 48px 8px",
       },
-      [breakpoints.up('md')]: {
-        height: "45vh",
-        padding: "48px 8px 48px 8px",
-      },
-      [breakpoints.up('lg')]: {
-        padding: "48px 8px 48px 8px",
-        height: "50vh",
-      },
+      "& > div": {
+        [breakpoints.up('md')]:{
+          padding: "0 8px",
+        },
+        [breakpoints.down('md')]: {
+          // paddingBottom: constants.generalUnit * 4,
+        }
+      }
     },
     hr: {
       background: palette.additional["gray"][3],
     },
     bodyTextWrapper: {
+      padding: "0 8px",
       [breakpoints.up('lg')]: {
         position: "absolute",
         bottom: "2px",
+        maxWidth: "95%",
       },
       "& > p": {
         color: palette.additional["gray"][9],
         fontSize: "16px",
         lineHeight: "24px",
+        [breakpoints.down('sm')]:{
+          maxWidth: "100%",
+        },
         maxWidth: "60%",
       },
       "& > a": {
@@ -143,9 +148,10 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
     topAlignedList: {
       position: "absolute",
       top: 0,
-      width: "100%",
+      maxWidth: "100%",
+      minWidth: "99%",
       [breakpoints.down('md')]: {
-        gridRow: 1,
+        margin: "16px 0",
       },
       "& > p": {
         color: palette.additional["gray"][9],
@@ -162,11 +168,12 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
     },
     imgWrapper: {
       position: "absolute", top: 0, height: "100%",
-      [breakpoints.down('lg')]: {
+      [breakpoints.down('md')]: {
         width: "100%",
       },
       "& > img": {
-        width: "100%",
+        maxWidth: "100%",
+        maxHeight: "100%",
       }
     },
   })
@@ -206,8 +213,6 @@ const CareersPage: React.FC = () => {
               <p>Our mission is to support the future of open-source software and to bring the power of trustless systems to its greatest potential. </p>
               <br></br>
               <p>We do this by delivering high-quality code efficiently, and doing that in a people-first manner.</p>
-              <br></br>
-              {/* <a href="/openpositions"><h3>View open positions</h3></a> */}
             </div>
           </div>
           </section>
@@ -253,7 +258,9 @@ const CareersPage: React.FC = () => {
           </div>
           <div></div>
           <div className={classes.bodyTextContainer}>
-            <Slider/>
+            <div>
+              <Slider/>
+            </div>
           </div>
           </section>
           {/* Current Openings */}
@@ -282,5 +289,3 @@ const CareersPage: React.FC = () => {
 }
 
 export default CareersPage;
-
-//  https://res.cloudinary.com/ddxhvanz2/image/upload/v1615486323/chainsafe%20careers%20page/office1_uftrt6.png 2x
