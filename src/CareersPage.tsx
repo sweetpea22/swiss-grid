@@ -1,5 +1,6 @@
 import React from 'react'
 import { createStyles, ITheme, makeStyles } from "@chainsafe/common-theme";
+import Slider from './Slider';
 
 
 const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
@@ -16,13 +17,16 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       flexDirection: "column",
       alignItems: "flex-start",
       width: "100%",
+      [breakpoints.down('md')]:{
+        marginBottom: "24px",
+      }
     },
     headerContentContainer: {
       display: "grid",
       [breakpoints.down('md')]: {
         justifyItems: "center",
         gridTemplateColumns: "1fr",
-        margin: "30px 24px 80px 24px",
+        margin: "30px 24px 24px 24px",
       },
       [breakpoints.up('md')]: {
         gridTemplateColumns: "35% 1fr",
@@ -36,6 +40,8 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       },
       [breakpoints.up('xl')]: {
         gridTemplateColumns: "22% 1fr 1fr",
+        margin: "0 7% 0 7%",
+
       },
     },
     headerTextContainer: {
@@ -141,7 +147,7 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
     }
     },
     imgWrapper: {
-      position: "absolute", top: 0, height: "100%", width: "auto",
+      position: "absolute", top: 0, height: "100%",
       [breakpoints.down('lg')]: {
         width: "100%",
       },
@@ -170,7 +176,7 @@ const CareersPage: React.FC = () => {
         <section className={classes.bodyContentContainer}>
           <div className={classes.bodyTextContainer}>
             <div className={classes.imgWrapper}>
-            <img src="/plant.png" style={{width: "auto", height: "100%"}} alt=""/>
+            <img src="/plant.png" style={{ height: "100%"}} alt=""/>
             </div>
           </div>
           <div></div>
@@ -208,7 +214,7 @@ const CareersPage: React.FC = () => {
           <div></div>
           <div className={classes.bodyTextContainer}>
             <div className={classes.imgWrapper}>
-            <img src="/plant.png" style={{width: "auto", height: "100%"}} alt=""/>
+            <img src="/plant.png" style={{ height: "100%"}} alt=""/>
             </div>
           </div>
           </section>
@@ -229,9 +235,7 @@ const CareersPage: React.FC = () => {
           </div>
           <div></div>
           <div className={classes.bodyTextContainer}>
-            <div className={classes.imgWrapper} style={{background: "gray", width: "100%"}}>
-              <h1>hello?</h1>
-            </div>
+            <Slider/>
           </div>
           </section>
           {/* Current Openings */}
@@ -254,8 +258,8 @@ const CareersPage: React.FC = () => {
           </div>
           <div></div>
           <div className={classes.bodyTextContainer}>
-              <div style={{ position: "absolute", top: 0, height: "100%", width: "auto" }}>
-              <img src="/plant.png" style={{width: "auto", height: "100%"}} alt=""/>
+              <div className={classes.imgWrapper}>
+              <img src="/plant.png" style={{ height: "100%"}} alt=""/>
               </div>
           </div>
         </section>
