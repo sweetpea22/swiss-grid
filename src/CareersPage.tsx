@@ -69,51 +69,65 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
     },
     bodyContainer: {
       background: palette.additional["gray"][3],
-      height: "200vh",
       width: "100%",
     },
     bodyContentContainer: {
       display: "grid",
       gridGap: "24px",
       [breakpoints.up('md')]: {
-        gridTemplateColumns: "1fr"
+        gridTemplateColumns: "minmax(0, 1fr)"
       },
       [breakpoints.up('lg')]: {
-        gridTemplateColumns: "6.5fr 1fr 6fr",
-        marginTop: "40px",
+        gridTemplateColumns: "minmax(0,6fr) minmax(0,.5fr) minmax(0, 6fr)",
+        marginTop: "5%",
       }
     },
-    bodyTextContainer: {
-      width: "1/4", height: "40vh", background: palette.additional["gray"][4],
+    bodyTextContainer: { height: "50vh", background: palette.additional["gray"][3],
+    position: "relative",
+    width: "100%",
+    [breakpoints.up('lg')]: {
       padding: "48px 8px 48px 8px",
-      position: "relative",
-      "& > h1": {
-        color: palette.additional["gray"][9],
-        fontSize: "36px",
-        lineHeight: "1.2em"
-      },
-      "& > p": {
-        color: palette.additional["gray"][9],
-        fontSize: "16px",
-        lineHeight: "24px",
-        maxWidth: "55%",
-      }
+    },
     },
     hr: {
       background: "darkgray",
+    },
+    gridline: {
+      background: palette.additional["gray"][6],
+      height: "1px",
+      minWidth: "500px",
+      maxWidth: "100%",
     },
     bodyTextWrapper: {
       [breakpoints.up('lg')]: {
         position: "absolute",
         bottom: "2px",
-      }
+      },
+      "& > p": {
+        color: palette.additional["gray"][9],
+        fontSize: "14px",
+        lineHeight: "24px",
+      },
+      "& > a": {
+        color: palette.additional["gray"][9],
+        fontSize: "14px",
+        lineHeight: "24px",
+      },
+      "& > h1": {
+        color: palette.additional["gray"][9],
+        fontSize: "24px",
+        lineHeight: "1.2em"
+      },
     },
     topAlignedList: {
         position: "absolute",
-        top: 0,
-        "& > h1": {
+      top: 0,
+        width: "100%",
+      "& > h1": {
+          color: palette.additional["gray"][9],
+          fontSize: "20px",
           padding: "8px",
-          lineHeight: "1.2em",
+          lineHeight: "44px",
     }
     },
   })
@@ -135,6 +149,9 @@ const CareersPage: React.FC = () => {
       <main className={classes.bodyContainer}>
         <section className={classes.bodyContentContainer}>
           <div className={classes.bodyTextContainer}>
+            <div style={{ background: "#141414", position: "absolute", top: 0, height: "100%", width:"100%"}}>
+            <img src="/while.png" style={{maxWidth: "100%", maxHeight: "100%"}} alt=""/>
+            </div>
           </div>
           <div></div>
           <div className={classes.bodyTextContainer}>
@@ -142,7 +159,10 @@ const CareersPage: React.FC = () => {
               <h1>Join us to build a brazen future</h1>
               <hr className={classes.hr}></hr>
               <br></br>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+              <p>Our mission is to support the future of open-source software and to bring the power of trustless systems to its greatest potential. </p>
+              <br></br>
+              <p>We do this by delivering high-quality code efficiently, and doing that in a people-first manner.</p>
+              <a href="/openpositions"><h3>View open positions</h3></a>
             </div>
           </div>
           </section>
@@ -151,7 +171,7 @@ const CareersPage: React.FC = () => {
             <div className={classes.topAlignedList}>
               <p>Get to know us </p>
               <hr className={classes.hr}></hr>
-              <h1>ChainSafers, interviewed: Dustin Brickwood </h1>
+              <h1><a href="/openpositions">ChainSafers, interviewed: Dustin Brickwood</a></h1>
               <hr className={classes.hr}></hr>
               <h1>ChainSafers, interviewed: Ed Mack </h1>
               <hr className={classes.hr}></hr>
@@ -159,13 +179,13 @@ const CareersPage: React.FC = () => {
               <hr className={classes.hr}></hr>
               <h1>The story behind ChainSafe </h1>
               <hr className={classes.hr}></hr>
-              <br></br>
-              <br></br>
             </div>
           </div>
           <div></div>
           <div className={classes.bodyTextContainer}>
-            
+            <div style={{ height: "100%", width:"100%"}}>
+              <img src="/peak.jpeg" style={{maxWidth: "100%", maxHeight: "100%"}} alt=""/>
+              </div>
           </div>
         </section>
       </main>
