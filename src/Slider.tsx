@@ -15,6 +15,8 @@ const useStyles = makeStyles(({ breakpoints, palette, zIndex, constants }: IThem
       maxHeight: "100%",
       display: "flex",
       justifyContent: "flex-start",
+      [breakpoints.down('sm')]:{
+      },
     },
     slideWrapper: {
       display: "flex",
@@ -42,7 +44,11 @@ const useStyles = makeStyles(({ breakpoints, palette, zIndex, constants }: IThem
       fontSize: "72px",
       lineHeight: "82px",
       marginBottom: "2rem",
-
+      [breakpoints.down('sm')]:{
+        fontSize: "36px",
+        lineHeight: "44px",
+        marginTop: "1rem",
+      },
     },
     bodyText: {
       color: palette.common.black.main,
@@ -141,9 +147,6 @@ const Slider: React.FC = () => {
             <>
               <div className={classes.textWrapper}>
                 <p>{current +1}/8</p>
-                <br></br>
-                <br></br>
-                <br></br>
                 <p className={classes.title}>{slide.title}</p>
                 <p className={classes.bodyText}>{slide.caption}</p>
               </div>

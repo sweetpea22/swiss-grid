@@ -81,9 +81,9 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
     bodyContentContainer: {
       display: "grid",
       [breakpoints.up('md')]: {
-        gridTemplateColumns: "minmax(0, 1fr)",
+        gridTemplateColumns: "minmax(1fr)",
         marginTop: "24px",
-        rowGap: constants.generalUnit * 4,
+        width: "100%",
       },
       [breakpoints.up('lg')]: {
         gridTemplateColumns: "minmax(0,5fr) minmax(0,.5fr) minmax(0, 5fr)",
@@ -110,9 +110,6 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
         [breakpoints.up('md')]:{
           padding: "0 8px",
         },
-        [breakpoints.down('md')]: {
-          // paddingBottom: constants.generalUnit * 4,
-        }
       }
     },
     hr: {
@@ -151,7 +148,7 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       maxWidth: "100%",
       minWidth: "99%",
       [breakpoints.down('md')]: {
-        margin: "16px 0",
+        margin: "16px 0 16px 8px",
       },
       "& > p": {
         color: palette.additional["gray"][9],
@@ -169,7 +166,7 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
     imgWrapper: {
       position: "absolute", top: 0, height: "100%",
       [breakpoints.down('md')]: {
-        width: "100%",
+        maxWidth: "100%",
       },
       "& > img": {
         maxWidth: "100%",
