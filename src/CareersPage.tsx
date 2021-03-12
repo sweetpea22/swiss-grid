@@ -5,10 +5,6 @@ import Slider from './Slider';
 
 const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
   return createStyles({
-    pageContainer: {
-    },
-    contentContainer: {
-    },
     headerContainer: {
       background: "#141414",
       minHeight: "80vh",
@@ -35,7 +31,11 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       [breakpoints.up('xl')]: {
         gridTemplateColumns: "22% 1fr 1fr",
         margin: "0 7% 0 7%",
-        
+      },
+      [breakpoints.up(3800)]:{
+        position: "relative",
+        left: "50%",
+        transform: "translate(-50%)",
       },
       [breakpoints.down('md')]: {
         gridTemplateColumns: "1fr",
@@ -83,12 +83,18 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
     bodyContainer: {
       background: palette.additional["gray"][3],
       width: "100%",
+      overflowX: "hidden",
     },
     bodyContentContainer: {
       display: "grid",
       [breakpoints.up('lg')]: {
         gridTemplateColumns: "minmax(0,5fr) minmax(0,.5fr) minmax(0, 5fr)",
         marginTop: "6%",
+        rowGap: 0,
+      },
+      [breakpoints.up(3800)]:{
+        gridTemplateColumns: "minmax(0,5fr) 100px minmax(0, 5fr)",
+        margin: "3% 10%",
         rowGap: 0,
       },
       [breakpoints.between(960, 1100)]: {
@@ -109,6 +115,9 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
         gridTemplateColumns: "1fr",
         marginTop: "8%",
       },
+      [breakpoints.up(3800)]:{
+        margin: "0 10%",
+      },
     },
     bodyTextContainer: {
       background: palette.additional["gray"][3],
@@ -118,12 +127,15 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
         minHeight: "50vh",
         maxHeight: "55vh",
       },
+      [breakpoints.up(3800)]:{
+        maxHeight: "none",
+        minHeight: "45vh",
+      },
       [breakpoints.between(990, 1100)]:{
         height: "unset",
         maxHeight: "100%",
       },
     },
-
     gutter: {
       [breakpoints.down('md')]:{
         display: "none",
@@ -136,6 +148,7 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
         position: "absolute",
         bottom: "2px",
         width: "100%",
+        maxWidth: "99%",
       },
       [breakpoints.down('sm')]: {
         bottom: 0,
@@ -238,9 +251,9 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
 const CareersPage: React.FC = () => {
   const classes = useStyles();
   return (
-    <div className={classes.pageContainer}>
-    <section className={classes.contentContainer}>
-        <header className={classes.headerContainer}>
+    <div>
+    <section>
+      <header className={classes.headerContainer}>
         <div className={classes.headerContentContainer}>
           <img src="/gradient.png" alt="" className={classes.img}/>
           <div className={classes.headerTextContainer}>
