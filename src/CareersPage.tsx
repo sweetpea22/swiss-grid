@@ -237,7 +237,7 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
         },
       }
     },
-    img: {
+    headerImg: {
       [breakpoints.up('md')]:{
         width: "350px", height: "520px", background: "#b5b5b5",
       },
@@ -245,6 +245,35 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
         width: "100%",
         height: "500px",
       },
+    },
+    bulletListContainer: {
+      background: palette.additional["gray"][9],
+      borderRadius: constants.generalUnit,
+      position: "relative",
+      minHeight: "50vh",
+      maxHeight: "100%",
+      display: "flex",
+      justifyContent: "flex-start",
+    },
+    bulletList: {
+      display: "flex",
+      width: "100%",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      justifyContent: "center",
+      marginLeft: "24px",
+      "& > p": {
+        color: palette.additional["gray"][5],
+        marginTop: constants.generalUnit * 2,
+        fontSize: "20px",
+        lineHeight: "24px",
+      },
+      "& > h3":{
+        color: palette.additional["gray"][6],
+        fontSize: "36px",
+        lineHeight: "44px",
+        marginBottom: constants.generalUnit * 2,
+      }
     }
   })
 })
@@ -255,7 +284,7 @@ const CareersPage: React.FC = () => {
     <section>
       <header className={classes.headerContainer}>
         <div className={classes.headerContentContainer}>
-          <img src="/gradient.png" alt="" className={classes.img}/>
+          <img src="https://res.cloudinary.com/ddxhvanz2/image/upload/v1615485968/chainsafe%20careers%20page/gradient_jsmmlh.png" alt="Modern gradient from yellow to black" className={classes.headerImg}/>
           <div className={classes.headerTextContainer}>
             <h1 className={classes.headerTitle}>What does the future look like?</h1>
             <p>Nobody knows, but it starts with infrastructure.</p>
@@ -270,8 +299,8 @@ const CareersPage: React.FC = () => {
           <div className={classes.bodyTextContainer}>
             <div className={classes.imgWrapper}>
             <img 
-            src="/office1.png"
-            alt=""/>
+            src="https://res.cloudinary.com/ddxhvanz2/image/upload/v1615566017/chainsafe%20careers%20page/office_lxglkb.png"
+            alt="ChainSafe's office in Chinatown, a sunfilled room full of standing desks"/>
             </div>
           </div>
           <div className={classes.gutter}></div>
@@ -322,13 +351,43 @@ const CareersPage: React.FC = () => {
               <br></br>
               <p>There are ChainSafers on every continent. That means creating a space of  diversity, inclusion, and belonging is second to none. </p>
               <br></br>
-              <h1><a href="/openpositions">Read about our value system</a></h1>
             </div>
           </div>
           <div className={classes.gutter}></div>
           <div className={classes.bodyTextContainer}>
             <div className={classes.bodyTextWrapper}>
               <Slider/>
+            </div>
+          </div>
+          </section>
+          {/* Culture */}
+          <section className={classes.bodyContentContainer}>
+          <div className={classes.bodyTextContainer}>
+            <div className={classes.bodyTextWrapper}>
+              <h1>Learn with friendly and supportive humans</h1>
+              <hr></hr>
+              <br></br>
+              <p>Founded by Developers for Developers, we foster an environment where tasks are assigned based on what you want to learn, not just what you already know. </p>
+              <br></br>
+              <p>Building the future shouldn’t come at a cost of personal development. We want everyone to have the resources and support to be their best selves. </p>
+              <br></br>
+            </div>
+          </div>
+          <div className={classes.gutter}></div>
+          <div className={classes.bodyTextContainer}>
+            <div className={classes.bodyTextWrapper}>
+              <article className={classes.bulletListContainer}>
+                <div className={classes.bulletList}>
+                  <p>Fast opportunities for personal growth</p>
+                  <p>Mentorship and budget for professional development</p>
+                  <p>Lots of autonomy and responsibility</p>
+                  <p>Work on a variety of ecosystems and tech stacks</p>
+                  <p>Sustainable and thoughtful culture</p>
+                  <p>A results-driven environment</p>
+                  <p>Close collaboration with an international team</p>
+                  <p>Flexible work hours and remote-friendly</p>
+                </div>
+              </article>
             </div>
           </div>
           </section>
