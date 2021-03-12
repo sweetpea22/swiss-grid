@@ -137,6 +137,7 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       [breakpoints.up('lg')]: {
         position: "absolute",
         bottom: "2px",
+        width: "100%",
       },
       [breakpoints.down('sm')]: {
         bottom: 0,
@@ -201,7 +202,12 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       "& > img": {
         maxWidth: "100%",
         maxHeight: "100%",
-        width: "100%",
+        [breakpoints.down('md')]:{
+          width: "100%",
+        },
+        [breakpoints.up('lg')]:{
+          margin: "0 0 0 8px",
+        }
       }
     },
     img: {

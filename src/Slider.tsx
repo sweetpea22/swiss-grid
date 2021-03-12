@@ -55,7 +55,7 @@ const useStyles = makeStyles(({ breakpoints, palette, zIndex, constants }: IThem
       lineHeight: "24px",
       fontWeight: "normal",
       [breakpoints.up('lg')]: {
-        maxWidth: 600
+        maxWidth: "80%",
       },
       [breakpoints.down('lg')]: {
         maxWidth: "75%",
