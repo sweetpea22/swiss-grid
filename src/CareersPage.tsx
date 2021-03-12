@@ -86,22 +86,18 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
     },
     bodyContentContainer: {
       display: "grid",
-      [breakpoints.up('md')]: {
-        gridTemplateColumns: "minmax(0, 1fr)",
-        marginTop: "24px",
-        width: "100%",
-      },
       [breakpoints.up('lg')]: {
         gridTemplateColumns: "minmax(0,5fr) minmax(0,.5fr) minmax(0, 5fr)",
         marginTop: "6%",
         rowGap: 0,
       },
-      [breakpoints.down('md')]: {
+      [breakpoints.between(960, 1100)]: {
         gridTemplateColumns: "1fr",
         gridTemplateRows: "1fr",
+        marginTop: "24px",
         width: "100%",
       },
-      [breakpoints.down('sm')]: {
+      [breakpoints.down('md')]: {
         gridTemplateColumns: "1fr",
         gridTemplateRows: "1fr",
         width: "100%",
@@ -118,14 +114,16 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       background: palette.additional["gray"][3],
       position: "relative",
       width: "100%",
-      [breakpoints.up('md')]:{
-        // padding: "0 8px",
-        height: "50vh",
+      [breakpoints.up('lg')]:{
+        minHeight: "50vh",
+        maxHeight: "55vh",
+      },
+      [breakpoints.between(990, 1100)]:{
+        height: "unset",
+        maxHeight: "100%",
       },
     },
-    hr: {
-      background: palette.additional["gray"][3],
-    },
+
     gutter: {
       [breakpoints.down('md')]:{
         display: "none",
@@ -163,10 +161,13 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       },
     },
     topAlignedList: {
-      position: "absolute",
-      top: 0,
       maxWidth: "100%",
       minWidth: "99%",
+      [breakpoints.up('lg')]:{
+        position: "absolute",
+        bottom: 0,
+        width: "calc(100% - 16px)"
+      },
       [breakpoints.down('md')]: {
         margin: "16px 0 16px 8px",
         maxWidth: "95%",
@@ -174,8 +175,11 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
         position: "relative",
         top: "auto",
       },
+      [breakpoints.between(990, 1100)]:{
+        minWidth: "93%",
+      },
       [breakpoints.up('md')]:{
-        margin: "16px 8px",
+        margin: "0 8px",
       },
       "& > p": {
         color: palette.additional["gray"][9],
@@ -193,7 +197,11 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
     }
     },
     imgWrapper: {
-      position: "absolute", top: 0, height: "100%",
+      position: "relative", height: "100%",
+      [breakpoints.between(990, 1100)]: {
+        maxWidth: "100%",
+        position: "static",
+      },
       [breakpoints.down('md')]: {
         maxWidth: "100%",
         position: "static",
@@ -202,12 +210,18 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       "& > img": {
         maxWidth: "100%",
         maxHeight: "100%",
-        [breakpoints.down('md')]:{
-          width: "100%",
+        [breakpoints.up('xl')]:{
+          width: "unset",
+          maxWidth: "40vw",
+          maxHeight: "auto",
         },
         [breakpoints.up('lg')]:{
           margin: "0 0 0 8px",
-        }
+          width: "calc(100% - 16px)",
+        },
+        [breakpoints.down('md')]:{
+          width: "100%",
+        },
       }
     },
     img: {
@@ -216,7 +230,7 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       },
       [breakpoints.down('sm')]: {
         width: "100%",
-        height: "auto",
+        height: "500px",
       },
     }
   })
@@ -251,7 +265,7 @@ const CareersPage: React.FC = () => {
           <div className={classes.bodyTextContainer}>
             <div className={classes.bodyTextWrapper}>
               <h1>Join us to build a brazen future</h1>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
               <br></br>
               <p>Our mission is to support the future of open-source software and to bring the power of trustless systems to its greatest potential. </p>
               <br></br>
@@ -264,23 +278,23 @@ const CareersPage: React.FC = () => {
           <div className={classes.bodyTextContainer}>
             <div className={classes.topAlignedList}>
               <p>Get to know us </p>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
               <h1><a href="/editorial">ChainSafers, interviewed: Dustin Brickwood</a></h1>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
               <h1><a href="/openpositions">ChainSafers, interviewed: Ed Mack</a></h1>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
               <h1><a href="/openpositions">ChainSafers, interviewed: Elizabeth Binks</a></h1>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
               <h1><a href="/openpositions">The story behind ChainSafe</a></h1>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
               <h1><a href="/openpositions">How we support employees</a></h1>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
             </div>
           </div>
           <div className={classes.gutter}></div>
           <div className={classes.bodyTextContainer}>
             <div className={classes.imgWrapper}>
-            <img src="/office1.png"  alt=""/>
+            <img src="https://res.cloudinary.com/ddxhvanz2/image/upload/v1615563740/chainsafe%20careers%20page/chainsafe-office2_dimbga.png"  alt=""/>
             </div>
           </div>
           </article>
@@ -289,7 +303,7 @@ const CareersPage: React.FC = () => {
           <div className={classes.bodyTextContainer}>
             <div className={classes.bodyTextWrapper}>
               <h1>Culture is number one.</h1>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
               <br></br>
               <p>Great cultures make better organizations, which make better societies. ChainSafe is strongly committed to maintaining a welcoming environment for everyone to do their best work. </p>
               <br></br>
@@ -310,17 +324,17 @@ const CareersPage: React.FC = () => {
           <div className={classes.bodyTextContainer}>
             <div className={classes.topAlignedList}>
               <p>Current Openings Worldwide </p>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
               <h1><a href="/openpositions">Go Developer</a></h1>
-                <hr className={classes.hr}></hr>
+                <hr></hr>
               <h1><a href="/openpositions">Rust Developer</a></h1>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
               <h1><a href="/openpositions">Typescript Ethereum Developer</a></h1>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
               <h1><a href="/openpositions">Solutions Engineer</a></h1>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
               <h1><a href="/openpositions">Don't see your role? Apply here</a></h1>
-              <hr className={classes.hr}></hr>
+              <hr></hr>
             </div>
           </div>
         </section>
