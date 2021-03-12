@@ -18,35 +18,40 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       alignItems: "flex-start",
       width: "100%",
       [breakpoints.down('md')]:{
-        marginBottom: "24px",
       }
     },
     headerContentContainer: {
       display: "grid",
-      [breakpoints.down('md')]: {
-        justifyItems: "center",
-        gridTemplateColumns: "1fr",
-        margin: "30px 24px 24px 24px",
-      },
       [breakpoints.up('md')]: {
         gridTemplateColumns: "35% 1fr",
-        columnGap: "20px",
+        columnGap: "48px",
         margin: "0 5% 0 5%",
       },
       [breakpoints.up('lg')]: {
         gridTemplateColumns: "35% 1fr",
-        columnGap: "20px",
+        columnGap: "48px",
         margin: "0 5% 0 5%",
       },
       [breakpoints.up('xl')]: {
         gridTemplateColumns: "22% 1fr 1fr",
         margin: "0 7% 0 7%",
-
+        
+      },
+      [breakpoints.down('md')]: {
+        gridTemplateColumns: "1fr",
+        justifyItems: "center",
+        margin: "30px 24px 24px 24px",
+      },
+      [breakpoints.down('sm')]:{
+        gridTemplateColumns: "1fr",
+        justifyItems: "center",
+        margin: "32px 0"
       },
     },
     headerTextContainer: {
       [breakpoints.down('md')]: {
         display: "grid",
+        justifyItems: "center",
         "& > p": {
           color: palette.additional["gray"][3],
           fontSize: "16px",
@@ -64,6 +69,7 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
     },
     headerTitle: {
       [breakpoints.down('md')]: {
+        textAlign: "center",
         color: palette.additional["gray"][3],
         fontSize: "48px",
         lineHeight: "56px",
@@ -81,7 +87,7 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
     bodyContentContainer: {
       display: "grid",
       [breakpoints.up('md')]: {
-        gridTemplateColumns: "minmax(1fr)",
+        gridTemplateColumns: "minmax(0, 1fr)",
         marginTop: "24px",
         width: "100%",
       },
@@ -89,12 +95,22 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
         gridTemplateColumns: "minmax(0,5fr) minmax(0,.5fr) minmax(0, 5fr)",
         marginTop: "6%",
         rowGap: 0,
-      }
+      },
+      [breakpoints.down('md')]: {
+        gridTemplateColumns: "1fr",
+        gridTemplateRows: "1fr",
+        width: "100%",
+      },
+      [breakpoints.down('sm')]: {
+        gridTemplateColumns: "1fr",
+        gridTemplateRows: "1fr",
+        width: "100%",
+      },
     },
     singleColContainer: {
       display: "grid",
       [breakpoints.up('md')]: {
-        gridTemplateColumns: "minmax(0, 1fr)",
+        gridTemplateColumns: "1fr",
         marginTop: "8%",
       },
     },
@@ -102,25 +118,28 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       background: palette.additional["gray"][3],
       position: "relative",
       width: "100%",
-      height: "50vh",
-      [breakpoints.down('md')]: {
-        minHeight: "50vh",
+      [breakpoints.up('md')]:{
+        // padding: "0 8px",
+        height: "50vh",
       },
-      "& > div": {
-        [breakpoints.up('md')]:{
-          padding: "0 8px",
-        },
-      }
     },
     hr: {
       background: palette.additional["gray"][3],
     },
+    gutter: {
+      [breakpoints.down('md')]:{
+        display: "none",
+      }
+    },
     bodyTextWrapper: {
       padding: "0 8px",
+      maxWidth: "95%",
       [breakpoints.up('lg')]: {
         position: "absolute",
         bottom: "2px",
-        maxWidth: "95%",
+      },
+      [breakpoints.down('sm')]: {
+        bottom: 0,
       },
       "& > p": {
         color: palette.additional["gray"][9],
@@ -149,6 +168,13 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       minWidth: "99%",
       [breakpoints.down('md')]: {
         margin: "16px 0 16px 8px",
+        maxWidth: "95%",
+        minWidth: "90%",
+        position: "relative",
+        top: "auto",
+      },
+      [breakpoints.up('md')]:{
+        margin: "16px 8px",
       },
       "& > p": {
         color: palette.additional["gray"][9],
@@ -159,20 +185,34 @@ const useStyles = makeStyles(({ palette, breakpoints, constants }: ITheme) => {
       "& > h1": {
           color: palette.additional["gray"][9],
           fontSize: "20px",
-          padding: "8px",
           lineHeight: "44px",
+          [breakpoints.up('md')]:{
+            padding: "8px",
+          }
     }
     },
     imgWrapper: {
       position: "absolute", top: 0, height: "100%",
       [breakpoints.down('md')]: {
         maxWidth: "100%",
+        position: "static",
+        top: "auto",
       },
       "& > img": {
         maxWidth: "100%",
         maxHeight: "100%",
+        width: "100%",
       }
     },
+    img: {
+      [breakpoints.up('md')]:{
+        width: "350px", height: "520px", background: "#b5b5b5",
+      },
+      [breakpoints.down('sm')]: {
+        width: "100%",
+        height: "auto",
+      },
+    }
   })
 })
 const CareersPage: React.FC = () => {
@@ -182,7 +222,7 @@ const CareersPage: React.FC = () => {
     <section className={classes.contentContainer}>
         <header className={classes.headerContainer}>
         <div className={classes.headerContentContainer}>
-          <img src="/gradient.png" alt="" style={{width: "350px", height: "520px", background: "#b5b5b5"}}/>
+          <img src="/gradient.png" alt="" className={classes.img}/>
           <div className={classes.headerTextContainer}>
             <h1 className={classes.headerTitle}>What does the future look like?</h1>
             <p>Nobody knows, but it starts with infrastructure.</p>
@@ -193,7 +233,7 @@ const CareersPage: React.FC = () => {
       </header>
         <main className={classes.bodyContainer}>
         {/* Intro */}
-        <section className={classes.bodyContentContainer}>
+        <article className={classes.bodyContentContainer}>
           <div className={classes.bodyTextContainer}>
             <div className={classes.imgWrapper}>
             <img 
@@ -201,7 +241,7 @@ const CareersPage: React.FC = () => {
             alt=""/>
             </div>
           </div>
-          <div></div>
+          <div className={classes.gutter}></div>
           <div className={classes.bodyTextContainer}>
             <div className={classes.bodyTextWrapper}>
               <h1>Join us to build a brazen future</h1>
@@ -212,9 +252,9 @@ const CareersPage: React.FC = () => {
               <p>We do this by delivering high-quality code efficiently, and doing that in a people-first manner.</p>
             </div>
           </div>
-          </section>
+          </article>
           {/* Get to know us */}
-          <section className={classes.bodyContentContainer}>
+          <article className={classes.bodyContentContainer}>
           <div className={classes.bodyTextContainer}>
             <div className={classes.topAlignedList}>
               <p>Get to know us </p>
@@ -231,13 +271,13 @@ const CareersPage: React.FC = () => {
               <hr className={classes.hr}></hr>
             </div>
           </div>
-          <div></div>
+          <div className={classes.gutter}></div>
           <div className={classes.bodyTextContainer}>
             <div className={classes.imgWrapper}>
-            <img src="/plant.png" style={{ height: "100%"}} alt=""/>
+            <img src="/office1.png"  alt=""/>
             </div>
           </div>
-          </section>
+          </article>
           {/* Culture */}
           <section className={classes.bodyContentContainer}>
           <div className={classes.bodyTextContainer}>
@@ -250,12 +290,11 @@ const CareersPage: React.FC = () => {
               <p>There are ChainSafers on every continent. That means creating a space of  diversity, inclusion, and belonging is second to none. </p>
               <br></br>
               <h1><a href="/openpositions">Read about our value system</a></h1>
-
             </div>
           </div>
-          <div></div>
+          <div className={classes.gutter}></div>
           <div className={classes.bodyTextContainer}>
-            <div>
+            <div className={classes.bodyTextWrapper}>
               <Slider/>
             </div>
           </div>

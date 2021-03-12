@@ -15,8 +15,6 @@ const useStyles = makeStyles(({ breakpoints, palette, zIndex, constants }: IThem
       maxHeight: "100%",
       display: "flex",
       justifyContent: "flex-start",
-      [breakpoints.down('sm')]:{
-      },
     },
     slideWrapper: {
       display: "flex",
