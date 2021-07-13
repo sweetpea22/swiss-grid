@@ -7,6 +7,7 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
   return createStyles({
     container: {
       overflowX: "hidden",
+      background: "#0f0f0f",
       objectFit: "cover",
       objectPosition: "center",
       display: "flex",
@@ -58,7 +59,7 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       minWidth: "357px",
       height: "357px",
       marginBottom: constants.generalUnit * 3,
-      background: palette.additional["gray"][7],
+      background: palette.additional["gray"][4],
       marginRight: constants.generalUnit * 3,
       [breakpoints.down('md')]: {
         margin: "1rem 0 1rem 0",
@@ -72,7 +73,8 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       height: "357px",
       marginBottom: constants.generalUnit * 3,
       marginRight: "21px",
-      background: palette.additional["gray"][10],
+      background: "url('/bob.png')",
+      backgroundBlendMode: "darken",
       [breakpoints.down(1299)]: {
         maxWidth: "357px",
         minWidth: "357px",
@@ -112,8 +114,11 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
     lightgray: {
       background: "#F5F5F",
     },
+    blackPaper: {
+      background: "url('/oo.png')",
+    },
     texturedGray: {
-      background: "#01F4C7",
+      background: "url('/na.png')",
     },
     yellow: {
       background: palette.additional["yellow"][5],
@@ -124,6 +129,9 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
         marginTop: ".66rem",
       },
     },
+    gray9: {
+      background: "#262626"
+    },
     h2: {
       fontSize: "36px",
       fontWeight: 500,
@@ -133,7 +141,6 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
     },
     white: {
       color: palette.additional["gray"][1],
-
     },
     bgDark: {
       background: "black",
@@ -161,7 +168,7 @@ const SquareGrid: React.FC = () => {
               </Typography>
             </div>
             
-            <div className={clsx(classes.darkgray, classes.square)}>
+            <div className={clsx(classes.gray9, classes.square)}>
               <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
                 Distributed systems design
               </Typography>
@@ -191,7 +198,7 @@ const SquareGrid: React.FC = () => {
               </Typography>
             </div>
             
-            <div className={clsx(classes.darkgray, classes.square)}>
+            <div className={clsx(classes.blackPaper, classes.square)}>
               <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
                 Distributed systems design
               </Typography>
@@ -210,7 +217,7 @@ const SquareGrid: React.FC = () => {
                 Architect your systems so they can scale safely.
               </Typography>
             </div>
-            <div className={clsx(classes.darkgray, classes.doubleSquare)}>
+            <div className={clsx(classes.doubleSquare)}>
               <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
                 Distributed systems design
               </Typography>
@@ -219,7 +226,7 @@ const SquareGrid: React.FC = () => {
                 Architect your systems so they can scale safely.
               </Typography>
             </div>
-            <div className={clsx(classes.darkgray, classes.square)}>
+            <div className={clsx(classes.texturedGray, classes.square)}>
               <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
                 Distributed systems design
               </Typography>
