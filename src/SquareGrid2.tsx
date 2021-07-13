@@ -12,7 +12,7 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       justifyContent: "center",
       flexDirection: "column",
       alignItems: "center",
-      [breakpoints.down(767)]:{
+      [breakpoints.down(767)]: {
         alignItems: "flex-start",
       },
     },
@@ -34,20 +34,23 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       float: "left",
       [breakpoints.down(599)]: {
         marginBottom: "20px",
+      },
+      [breakpoints.down(767)]: {
+        float: "none",
       }
     },
-    squareContainer:{
-      display: "flex",
-      flexWrap: "wrap",
-      [breakpoints.down('1299')]: {
-        justifyContent: "center",
+    squareContainer: {
+      display: "grid",
+      gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)",
+      gridTemplateAreas: "header header header main main div footer . footer",
+      gridTemplateRows: "auto",
+      [breakpoints.down('1199')]: {
+        gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)",
       },
-      [breakpoints.down('999')]: {
-        justifyContent: "space-evenly",
-      },
-      [breakpoints.down('599')]: {
+      [breakpoints.down('767')]: {
+        display: "flex",
         flexDirection: "column",
-        justifyContent: "space-evenly",
+        alignItems: "center",
       }
     },
     square: {
@@ -59,8 +62,9 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       marginBottom: constants.generalUnit * 3,
       background: palette.additional["gray"][7],
       marginRight: constants.generalUnit * 3,
-      [breakpoints.down('md')]: {
+      [breakpoints.down('lg')]: {
         margin: "1rem 0 1rem 0",
+        justifyContent: "space-evenly",
       }
     },
     doubleSquare: {
@@ -70,10 +74,6 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       marginBottom: constants.generalUnit * 3,
       marginRight: "21px",
       background: palette.additional["gray"][10],
-      [breakpoints.down(1299)]: {
-        maxWidth: "357px",
-        minWidth: "357px",
-      }
 
     },
     bodyContainer: {
@@ -106,53 +106,54 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
   })
 })
 
-const SquareGrid: React.FC = () => {
+const SquareGrid2: React.FC = () => {
   const classes = useStyles();
   return (
     <section className={classes.container}>
       <div className={classes.gridContainer}>
         <article className={classes.contentContainer}>
           <div className={classes.squareContainer}>
+            <header className={classes.square}>
+              <Typography variant="h2">
+                Get on-chain data to power blockchain games.
+              </Typography>
+            </header>
+            <header className={classes.square}>
+              <Typography variant="h2">
+                Get on-chain data to power blockchain games.
+              </Typography>
+            </header>
+            <header className={classes.square}>
+              <Typography variant="h2">
+                Get on-chain data to power blockchain games.
+              </Typography>
+            </header>
+            <main className={classes.square}>
+              <Typography variant="h2">
+                Get on-chain data to power blockchain games.
+              </Typography>
+            </main>
+            <main className={classes.square}>
+              <Typography variant="h2">
+                Get on-chain data to power blockchain games.
+              </Typography>
+            </main>
             <div className={classes.square}>
               <Typography variant="h2">
                 Get on-chain data to power blockchain games.
               </Typography>
             </div>
-            <div className={classes.square}>
+            <footer className={classes.doubleSquare}>
               <Typography variant="h2">
                 Get on-chain data to power blockchain games.
               </Typography>
-            </div>
-            <div className={classes.square}>
+            </footer>
+
+            <footer className={classes.square}>
               <Typography variant="h2">
                 Get on-chain data to power blockchain games.
               </Typography>
-            </div>
-            <div className={classes.square}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
-              </Typography>
-            </div>
-            <div className={classes.square}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
-              </Typography>
-            </div>
-            <div className={classes.square}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
-              </Typography>
-            </div>
-            <div className={classes.doubleSquare}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
-              </Typography>
-            </div>
-            <div className={classes.square}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
-              </Typography>
-            </div>
+            </footer>
           </div>
         </article>
       </div>
@@ -160,4 +161,4 @@ const SquareGrid: React.FC = () => {
   )
 }
 
-export default SquareGrid;
+export default SquareGrid2;
