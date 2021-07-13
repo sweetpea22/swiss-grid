@@ -1,6 +1,7 @@
 import React from 'react'
 import { createStyles, ITheme, makeStyles } from "@chainsafe/common-theme";
 import { Typography } from '@chainsafe/common-components';
+import clsx from "clsx";
 
 const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
   return createStyles({
@@ -64,6 +65,8 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       }
     },
     doubleSquare: {
+      display: "flex",
+      flexDirection: "column",
       minWidth: "740px",
       maxWidth: "740px",
       height: "357px",
@@ -74,7 +77,6 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
         maxWidth: "357px",
         minWidth: "357px",
       }
-
     },
     bodyContainer: {
       display: "flex",
@@ -87,8 +89,9 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
     bodyText: {
       fontSize: "16px",
       lineHeight: "24px",
-      maxWidth: "650px",
+      maxWidth: "300px",
       width: "100%",
+      paddingLeft: "1.5rem",
     },
     calloutText: {
       fontSize: "24px",
@@ -101,7 +104,42 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       fontWeight: 400,
     },
     hr: {
-      height: "1px", width: "100%", background: "lightgray"
+      height: "1px", width: "75%", background: "lightgray", margin: "5rem 1rem 1rem 1.5rem",
+    },
+    darkgray: {
+      background: "#1A1A1A",
+    },
+    lightgray: {
+      background: "#F5F5F",
+    },
+    texturedGray: {
+      background: "#01F4C7",
+    },
+    yellow: {
+      background: palette.additional["yellow"][5],
+    },
+    marginTop: {
+      marginTop: "1rem",
+      [breakpoints.down(767)]: {
+        marginTop: ".66rem",
+      },
+    },
+    h2: {
+      fontSize: "36px",
+      fontWeight: 500,
+      lineHeight: "48px",
+      margin: "1.5rem 1rem 1rem 1.5rem",
+      letterSpacing: "-.66px",
+    },
+    white: {
+      color: palette.additional["gray"][1],
+
+    },
+    bgDark: {
+      background: "black",
+    },
+    dark: {
+      color: palette.additional["gray"][10],
     },
   })
 })
@@ -113,46 +151,84 @@ const SquareGrid: React.FC = () => {
       <div className={classes.gridContainer}>
         <article className={classes.contentContainer}>
           <div className={classes.squareContainer}>
-            <div className={classes.square}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
+            <div className={clsx(classes.darkgray, classes.square)}>
+              <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
+                Distributed systems design
+              </Typography>
+              <div className={classes.hr}></div>
+              <Typography variant="h6" className={clsx(classes.bodyText, classes.white)}>
+                Architect your systems so they can scale safely.
               </Typography>
             </div>
-            <div className={classes.square}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
+            
+            <div className={clsx(classes.darkgray, classes.square)}>
+              <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
+                Distributed systems design
+              </Typography>
+              <div className={classes.hr}></div>
+              <Typography variant="h6" className={clsx(classes.bodyText, classes.white)}>
+                Architect your systems so they can scale safely.
               </Typography>
             </div>
-            <div className={classes.square}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
+            
+            <div className={clsx(classes.yellow, classes.square)}>
+              <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.dark)}>
+                Distributed systems design
+              </Typography>
+              <div className={clsx(classes.hr, classes.bgDark)}></div>
+              <Typography variant="h6" className={clsx(classes.bodyText, classes.dark)}>
+                Architect your systems so they can scale safely.
               </Typography>
             </div>
-            <div className={classes.square}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
+            
+            <div className={clsx(classes.lightgray, classes.square)}>
+              <Typography variant="h2" className={clsx(classes.marginTop, classes.h2)}>
+                Distributed systems design
+              </Typography>
+              <div className={clsx(classes.hr, classes.bgDark)}></div>
+              <Typography variant="h6" className={clsx(classes.bodyText)}>
+                Architect your systems so they can scale safely.
               </Typography>
             </div>
-            <div className={classes.square}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
+            
+            <div className={clsx(classes.darkgray, classes.square)}>
+              <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
+                Distributed systems design
+              </Typography>
+              <div className={classes.hr}></div>
+              <Typography variant="h6" className={clsx(classes.bodyText, classes.white)}>
+                Architect your systems so they can scale safely.
               </Typography>
             </div>
-            <div className={classes.square}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
+            
+            <div className={clsx(classes.darkgray, classes.square)}>
+              <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
+                Distributed systems design
+              </Typography>
+              <div className={classes.hr}></div>
+              <Typography variant="h6" className={clsx(classes.bodyText, classes.white)}>
+                Architect your systems so they can scale safely.
               </Typography>
             </div>
-            <div className={classes.doubleSquare}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
+            <div className={clsx(classes.darkgray, classes.doubleSquare)}>
+              <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
+                Distributed systems design
+              </Typography>
+              <div className={classes.hr}></div>
+              <Typography variant="h6" className={clsx(classes.bodyText, classes.white)}>
+                Architect your systems so they can scale safely.
               </Typography>
             </div>
-            <div className={classes.square}>
-              <Typography variant="h2">
-                Get on-chain data to power blockchain games.
+            <div className={clsx(classes.darkgray, classes.square)}>
+              <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
+                Distributed systems design
+              </Typography>
+              <div className={classes.hr}></div>
+              <Typography variant="h6" className={clsx(classes.bodyText, classes.white)}>
+                Architect your systems so they can scale safely.
               </Typography>
             </div>
+            
           </div>
         </article>
       </div>
