@@ -42,14 +42,13 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       display: "flex",
       flexWrap: "wrap",
       [breakpoints.down('1299')]: {
-        justifyContent: "center",
+        justifyContent: "flex-start",
       },
       [breakpoints.down('999')]: {
         justifyContent: "space-evenly",
       },
       [breakpoints.down('599')]: {
         flexDirection: "column",
-        justifyContent: "space-evenly",
       }
     },
     square: {
@@ -78,7 +77,13 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       [breakpoints.down(1299)]: {
         maxWidth: "357px",
         minWidth: "357px",
-      }
+      },
+      "& > span": {
+        maxWidth: "600px",
+        [breakpoints.down(1299)]: {
+          maxWidth: "300px"
+        }
+      },
     },
     bodyContainer: {
       display: "flex",
@@ -87,6 +92,19 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       alignItems: "flex-start",
       maxWidth: "650px",
       margin: "5%",
+    },
+    titleText: {
+      maxWidth: "1000px",
+      textAlign: "left",
+      fontWeight: 500,
+      letterSpacing: "-0.5px",
+      marginBottom: constants.generalUnit * 4,
+      [breakpoints.down("md")]: {
+        fontSize: "48px",
+        lineHeight: "55px",
+        maxWidth: "90%",
+        marginBottom: constants.generalUnit * 2,
+      }
     },
     bodyText: {
       fontSize: "16px",
@@ -157,6 +175,9 @@ const SquareGrid: React.FC = () => {
     <section className={classes.container}>
       <div className={classes.gridContainer}>
         <article className={classes.contentContainer}>
+          <Typography variant="h1" className={clsx(classes.white, classes.titleText)}>
+            Services
+          </Typography>
           <div className={classes.squareContainer}>
             <div className={clsx(classes.darkgray, classes.square)}>
               <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
@@ -170,73 +191,75 @@ const SquareGrid: React.FC = () => {
             
             <div className={clsx(classes.gray9, classes.square)}>
               <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
-                Distributed systems design
+                Solutions Research
               </Typography>
               <div className={classes.hr}></div>
               <Typography variant="h6" className={clsx(classes.bodyText, classes.white)}>
-                Architect your systems so they can scale safely.
+                Our in-house computer scientists are there to help you crack the toughest problems.
               </Typography>
             </div>
             
             <div className={clsx(classes.yellow, classes.square)}>
               <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.dark)}>
-                Distributed systems design
+                Blockchain Implementation
               </Typography>
               <div className={clsx(classes.hr, classes.bgDark)}></div>
               <Typography variant="h6" className={clsx(classes.bodyText, classes.dark)}>
-                Architect your systems so they can scale safely.
+                Your protocol deserves world-class treatment.
               </Typography>
             </div>
             
             <div className={clsx(classes.lightgray, classes.square)}>
               <Typography variant="h2" className={clsx(classes.marginTop, classes.h2)}>
-                Distributed systems design
+                Smart Contract Audits
               </Typography>
               <div className={clsx(classes.hr, classes.bgDark)}></div>
               <Typography variant="h6" className={clsx(classes.bodyText)}>
-                Architect your systems so they can scale safely.
+                Get a second opinon so you can go to market faster and with peace of mind.
               </Typography>
             </div>
             
             <div className={clsx(classes.blackPaper, classes.square)}>
               <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
-                Distributed systems design
+                Smart Contract Engineering
               </Typography>
               <div className={classes.hr}></div>
               <Typography variant="h6" className={clsx(classes.bodyText, classes.white)}>
-                Architect your systems so they can scale safely.
+                Is gas-efficient, security-critical code the foundation of your project’s success?
               </Typography>
             </div>
             
             <div className={clsx(classes.darkgray, classes.square)}>
               <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
-                Distributed systems design
+                dApp Development
               </Typography>
               <div className={classes.hr}></div>
               <Typography variant="h6" className={clsx(classes.bodyText, classes.white)}>
-                Architect your systems so they can scale safely.
+                We have a team of engineers and designers dedicated to crafting quality app experiences.
               </Typography>
             </div>
             <div className={clsx(classes.doubleSquare)}>
               <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
-                Distributed systems design
+                Tooling development
               </Typography>
               <div className={classes.hr}></div>
               <Typography variant="h6" className={clsx(classes.bodyText, classes.white)}>
-                Architect your systems so they can scale safely.
+                Often when you’re doing something new, you’ll want tools just right for the job. Check out tools we’ve already built, or put in a request for one today.
               </Typography>
             </div>
             <div className={clsx(classes.texturedGray, classes.square)}>
               <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
-                Distributed systems design
+                Software maintenance
               </Typography>
               <div className={classes.hr}></div>
               <Typography variant="h6" className={clsx(classes.bodyText, classes.white)}>
-                Architect your systems so they can scale safely.
+                Ensures that the great code you wrote works forward and backward in time.
               </Typography>
             </div>
-            
           </div>
+          <Typography variant="h1" className={clsx(classes.white, classes.titleText)}>
+            It all starts with an <a className={classes.white} href="mailto:info@chainsafe.com">email.</a>
+          </Typography>
         </article>
       </div>
     </section>
