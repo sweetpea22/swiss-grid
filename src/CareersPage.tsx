@@ -398,7 +398,7 @@ const CareersPage: React.FC = () => {
               <p>Current Openings Worldwide </p>
               <hr></hr>
               <h1><a href="/openpositions">Go Developer</a></h1>
-                <hr></hr>
+              <hr></hr>
               <h1><a href="/openpositions">Rust Developer</a></h1>
               <hr></hr>
               <h1><a href="/openpositions">Typescript Ethereum Developer</a></h1>
