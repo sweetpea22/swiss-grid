@@ -49,8 +49,10 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       },
       [breakpoints.down('599')]: {
         flexDirection: "column",
+        alignItems: "center",
       }
     },
+
     square: {
       display: "flex",
       flexDirection: "column",
@@ -104,6 +106,22 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
         lineHeight: "55px",
         maxWidth: "90%",
         marginBottom: constants.generalUnit * 2,
+      }
+    },
+    pageTitle: {
+      maxWidth: "1000px",
+      textAlign: "left",
+      fontWeight: 500,
+      letterSpacing: "-0.5px",
+      marginBottom: constants.generalUnit * 4,
+      [breakpoints.down("md")]: {
+        fontSize: "48px",
+        lineHeight: "55px",
+        maxWidth: "90%",
+        marginBottom: constants.generalUnit * 2,
+      },
+      [breakpoints.down('599')]: {
+        textAlign: "center",
       }
     },
     bodyText: {
@@ -166,6 +184,10 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
     dark: {
       color: palette.additional["gray"][10],
     },
+    squareTitleText: {
+      height: "100px",
+      minHeight: "100px",
+    },
   })
 })
 
@@ -175,12 +197,12 @@ const SquareGrid: React.FC = () => {
     <section className={classes.container}>
       <div className={classes.gridContainer}>
         <article className={classes.contentContainer}>
-          <Typography variant="h1" className={clsx(classes.white, classes.titleText)}>
+          <Typography variant="h1" className={clsx(classes.white, classes.pageTitle)}>
             Services
           </Typography>
           <div className={classes.squareContainer}>
             <div className={clsx(classes.darkgray, classes.square)}>
-              <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
+              <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white, classes.squareTitleText)}>
                 Distributed systems design
               </Typography>
               <div className={classes.hr}></div>
@@ -190,7 +212,7 @@ const SquareGrid: React.FC = () => {
             </div>
             
             <div className={clsx(classes.gray9, classes.square)}>
-              <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white)}>
+              <Typography variant="h2" className={clsx(classes.marginTop, classes.h2, classes.white, classes.squareTitleText)}>
                 Solutions Research
               </Typography>
               <div className={classes.hr}></div>
@@ -257,7 +279,7 @@ const SquareGrid: React.FC = () => {
               </Typography>
             </div>
           </div>
-          <Typography variant="h1" className={clsx(classes.white, classes.titleText)}>
+          <Typography variant="h1" className={clsx(classes.white, classes.pageTitle)}>
             It all starts with an <a className={classes.white} href="mailto:info@chainsafe.com">email.</a>
           </Typography>
         </article>
