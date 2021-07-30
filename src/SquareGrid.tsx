@@ -98,7 +98,8 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
     titleText: {
       maxWidth: "1000px",
       textAlign: "left",
-      fontWeight: 500,
+      fontFamily: "Anderson Grotesk, Arial",
+      fontWeight: 300,
       letterSpacing: "-0.5px",
       marginBottom: constants.generalUnit * 4,
       [breakpoints.down("md")]: {
@@ -185,6 +186,8 @@ const useStyles = makeStyles(({ breakpoints, palette, constants }: ITheme) => {
       color: palette.additional["gray"][10],
     },
     squareTitleText: {
+      fontFamily: "Anderson Grotesk",
+      fontWeight: 500,
       height: "100px",
       minHeight: "100px",
     },
